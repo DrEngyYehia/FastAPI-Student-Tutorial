@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Our Store{% endblock %}</title>
+
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', path='/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Shared Header -->
+    <header>
+            <img
+                src="{{ url_for('static', path='/images/logo.png') }}"
+                alt="Our Store Logo" class="logo">
+    </header>
+
+    <!-- Shared Navigation -->
+    <nav>
+        <a href="/">Home</a>
+        <a href="/menu">Menu</a>
+        <a href="/about">About Us</a>
+        <a href="/contact">Contact Us</a>
+    </nav>
+
+    <!-- Page-Specific Content -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Shared Footer -->
+    <footer>
+        <p>&copy; 2026 Our Store. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
