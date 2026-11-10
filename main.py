@@ -1,7 +1,8 @@
+from fastapi import FastAPI, Request, Form
 
-from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
+
 
 # Create the FastAPI application
 app = FastAPI()
@@ -49,5 +50,25 @@ def menu(request: Request):
     return templates.TemplateResponse(
         request=request,
         name="menu.html",
+        context={}
+    )
+# Display registration page
+@app.get("/register")
+def register_page(request: Request):
+
+    return templates.TemplateResponse(
+        request=request,
+        name="register.html",
+        context={}
+    )
+
+
+# Display login page
+@app.get("/login")
+def login_page(request: Request):
+
+    return templates.TemplateResponse(
+        request=request,
+        name="login.html",
         context={}
     )
